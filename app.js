@@ -8,7 +8,7 @@ eventEmitter.on("tutorial", (num1, num2) => {
 eventEmitter.emit("tutorial", 1, 2);
 
 class Person extends EventEmitter{
-  constructor() {
+  constructor(name) {
     super(),
       this._name = name;
   }
@@ -18,8 +18,15 @@ class Person extends EventEmitter{
 }
 
 let pedro = new Person("Pedro");
+let christina = new Person("Christina");
+
+christina.on("name", () => {
+  console.log("my name is" + christina.name);
+});
+
 pedro.on("name", () => {
   console.log("my name is" + pedro.name);
 });
 
 pedro.emit("name")
+christina.emit("name")
